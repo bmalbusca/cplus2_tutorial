@@ -120,7 +120,14 @@ arr = {1.0f,2.0f,3.0f}``
 - To all subdirectories that we added, another CMakeLists need to exists there and they can be empty! ``${PROJECT_SOURCE_DIR}/`` is a system variable that is usefull to set a full path; 
     
 - At the end, we need to add a executable in the CMakeLists at `src` folder : ``add_executable(main_bin main.cpp)`` ; Then we can use only ``make`` at build folder unless if we added new files after making cmake. A new `src` folder will appear inside `build` folder with the executable file
-    
+
+from [this issue](https://github.com/OpenRCT2/OpenRCT2/issues/10355):
+``Tested working hotfix would be adding following lines somewhere in the head of CMakeLists.txt:
+
+IF(APPLE)
+   LINK_DIRECTORIES(/usr/local/lib)
+ENDIF()
+``
 > **Look for libraries**
 > 
 > arc dynamic/static libraries
